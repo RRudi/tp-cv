@@ -1,0 +1,13 @@
+.resume {
+    width: 100%;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .resume .resume_left {
+    width: 100%;
+  }
+
+  .resume .resume_right {
+    width: 100%;
+  }
