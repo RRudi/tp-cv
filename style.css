@@ -316,11 +316,6 @@ body {
 
 .copyright {
   margin: 10px 0px;
-  /* background-color: #eee; */
   text-align: center;
   color: white;
-}
-
-.copyright p {
-  /* margin-bottom: 1rem; */
 }
