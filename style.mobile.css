@@ -11,3 +11,14 @@
   .resume .resume_right {
     width: 100%;
   }
+
+  .resume .resume_left .resume_photo {
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .resume .resume_left .resume_photo img {
+    margin: auto;
+  }
