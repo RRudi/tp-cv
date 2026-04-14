@@ -68,19 +68,24 @@ const CV_DEFAULT_DATA = {
   ],
   "experiences": [
     {
-      "dates": "2020 - Aujourd'hui",
-      "title": "Lorem ipsum dolor sit amet.",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!"
+      "dates": "Depuis 2015",
+      "title": "Vedif - Franciliane (La Défense)",
+      "description": "Développeur FullStack / Tech Lead : Équipe ServO\nActivité et maintien en condition opérationnelle (MCO) - C#, Angular, Python, ElasticSearch\nDéveloppement et réalisation de nombreux projets (Moteurs de calculs, IHMs, Socle d’acquisition de données, Automatisation, Sortie PI et AF, Optimisation et amélioration des perfs de traitements…) \nAdministration des machines virtuelles Windows Server et Linux\nAnalyse et étude des specs, réalisation d’activité d’étude, recherche et développement"
     },
     {
-      "dates": "2017 - 2020",
-      "title": "Lorem ipsum dolor sit amet.",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!"
+      "dates": "2014 - 2015",
+      "title": "Premium Services LLC (Dubai)",
+      "description": "Fondateur et Développeur Web : Création d'une société de services informatique à Dubaï\nCréation applications (Android & iOS) et d’applications web (JavaScript et PHP)\nCréation de plus de 15 sites internet Vitrine et e-Commerce\nWeb Design et Infographies  (Photoshop)\nGestion campagnes Adwords et SEO\nRelation client"
     },
     {
-      "dates": "2015 - 2017",
-      "title": "Lorem ipsum dolor sit amet.",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!"
+      "dates": "2012 - 2014",
+      "title": "Vip Luxury (Dubai)",
+      "description": "IT Manager : Manager informatique dans une conciergerie de luxe\nGestion de projets et d’équipe\nRédaction de docs fonctionnelles & techniques\nCréation d’applications web et sites internet (Javascript et PHP)\nWeb Design (Photoshop)\nGestion campagnes Adwords et SEO"
+    },
+    {
+      "dates": "2010 - 2014",
+      "title": "SiteForYou (Paris)",
+      "description": "Fondateur et Développeur Web : Création d'une société de services informatique\nCréation d’applications web (JavaScript et PHP)\nCréation et Maintenance de plus de 60 sites internet (Javascript et PHP)\nCréation Applications Android & iOS"
     }
   ],
   "education": [
