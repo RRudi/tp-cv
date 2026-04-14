@@ -165,7 +165,7 @@
             escapeHtml(exp.title) +
             "</p>" +
             "<p>" +
-            escapeHtml(exp.description) +
+            DOMPurify.sanitize(exp.description || "") +
             "</p>" +
             "</div>" +
             "</li>"
@@ -189,7 +189,7 @@
             escapeHtml(edu.title) +
             "</p>" +
             "<p>" +
-            escapeHtml(edu.description) +
+            DOMPurify.sanitize(edu.description || "") +
             "</p>" +
             "</div>" +
             "</li>"
