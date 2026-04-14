@@ -5,7 +5,7 @@ const CV_DEFAULT_DATA = {
     "phone": "+33 642556699",
     "email": "rudi.romeu@gmail.com",
     "website": "www.rudiromeu.xyz",
-    "address": "1 bd Masséna, 75013 Paris",
+    "address": "Paris",
     "avatarUrl": ""
   },
   "about": "Développeur indépendant FullStack / Tech Lead avec 17 ans d’expérience, je travaille au sein de l'équipe ServO chez FRANCILIANE, pilotage opérationnel du service de l’eau reposant sur .NET, Angular, React et PostgreSQL.",
@@ -75,7 +75,7 @@ const CV_DEFAULT_DATA = {
     {
       "dates": "2014 - 2015",
       "title": "Premium Services LLC (Dubai)",
-      "description": "Fondateur et Développeur Web : Création d'une société de services informatique à Dubaï\nCréation applications (Android & iOS) et d’applications web (JavaScript et PHP)\nCréation de plus de 15 sites internet Vitrine et e-Commerce\nWeb Design et Infographies  (Photoshop)\nGestion campagnes Adwords et SEO\nRelation client"
+      "description": "Fondateur et Développeur Web : Création d'une société de services informatique à Dubaï\n\nCréation applications (Android & iOS) et d’applications web (JavaScript et PHP)\nCréation de plus de 15 sites internet Vitrine et e-Commerce\n\nWeb Design et Infographies  (Photoshop)\n\nGestion campagnes Adwords et SEO\n\nRelation client"
     },
     {
       "dates": "2012 - 2014",
