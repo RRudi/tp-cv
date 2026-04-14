@@ -85,14 +85,19 @@ const CV_DEFAULT_DATA = {
   ],
   "education": [
     {
-      "dates": "2010 - 2013",
-      "title": "Lorem ipsum dolor sit amet.",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!"
+      "dates": "2006 - 2009",
+      "title": "Diplôme d'ingénieur informatique, spécialité Système Informatique et Génie Logiciel",
+      "description": "Ingésup, Ecole d'ingénieur informatique (Paris)"
     },
     {
-      "dates": "2007 - 2010",
-      "title": "Lorem ipsum dolor sit amet.",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!"
+      "dates": "2003 - 2005",
+      "title": "DUT Informatique",
+      "description": "Université Paris Descartes"
+    },
+    {
+      "dates": "2003",
+      "title": "Baccalauréat Scientifique (spé Mathématique)",
+      "description": "Lycée Arago (Paris)"
     }
   ],
   "hobbies": [
