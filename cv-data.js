@@ -77,11 +77,6 @@ const CV_DEFAULT_DATA = {
   ],
   "experiences": [
     {
-      "dates": "Depuis 2021",
-      "title": "Formateur HTML/CSS et Javascript",
-      "description": "Cours particulier pour des personnes en reconversion professionnelle"
-    },
-    {
       "dates": "Depuis 2015",
       "title": "Vedif - Franciliane (La Défense)",
       "description": "<b>Développeur FullStack / Tech Lead :</b> Équipe ServO&nbsp;<div><br><div>- Activité et maintien en condition opérationnelle (MCO)&nbsp;<span style=\"font-family: inherit; font-size: 0.95rem;\">C#, Angular, Python, ElasticSearch&nbsp;</span><div><span style=\"font-family: inherit; font-size: 0.95rem;\">- Développement et réalisation de nombreux projets (Moteurs de calculs, IHMs, Socle d’acquisition de données, Automatisation, Sortie PI et AF, Optimisation et amélioration des perfs de traitements…)&nbsp;</span><br><span style=\"font-family: inherit; font-size: 0.95rem;\">- Administration des machines virtuelles Windows Server et Linux\nAnalyse et étude des specs, réalisation d’activité d’étude, recherche et développement</span></div></div></div>"
