@@ -1,5 +1,5 @@
 const CV_DEFAULT_DATA = {
-  "theme": "style2",
+  "theme": "style1",
   "personal": {
     "name": "Rudi Romeu",
     "title": "Développeur FullStack / Tech Lead (17 ans d’expérience)",
