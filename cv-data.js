@@ -100,18 +100,18 @@ const CV_DEFAULT_DATA = {
   "education": [
     {
       "dates": "2006 - 2009",
-      "title": "Diplôme d'ingénieur informatique, spécialité Système Informatique et Génie Logiciel",
-      "description": "Ingésup, Ecole d'ingénieur informatique (Paris)"
+      "title": "Diplôme d'Ingénieur en Informatique (Niveau Bac+5) - Ingésup, Paris",
+      "description": "<b data-path-to-node=\"5,0,0\" data-index-in-node=\"0\" style=\"font-family: inherit; font-size: 0.95rem;\">Spécialité :</b><span style=\"font-family: inherit; font-size: 0.95rem;\"> Systèmes Informatiques et Génie Logiciel (SIGL).</span><br><i data-path-to-node=\"5,1,0\" data-index-in-node=\"0\" style=\"font-family: inherit; font-size: 0.95rem;\">Focus sur l'architecture logicielle, la conception de systèmes d'information complexes et la gestion de projets IT.</i>"
     },
     {
       "dates": "2003 - 2005",
-      "title": "DUT Informatique",
-      "description": "Université Paris Descartes"
+      "title": "DUT Informatique - Université Paris Descartes, Paris",
+      "description": "Acquisition des fondamentaux solides en développement, algorithmique et bases de données."
     },
     {
       "dates": "2003",
-      "title": "Baccalauréat Scientifique (spé Mathématique)",
-      "description": "Lycée Arago (Paris)"
+      "title": "Baccalauréat Scientifique - Lycée Arago, Paris",
+      "description": "Spécialité Mathématiques."
     }
   ],
   "hobbies": [
