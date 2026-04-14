@@ -314,6 +314,20 @@ body {
 
 
 
+/* Merge resume_info + resume_contact visually in style1 */
+.resume .resume_left .resume_info {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.resume .resume_left .resume_contact {
+  padding-top: 0;
+}
+
+.resume .resume_left .resume_contact .title {
+  display: none;
+}
+
 .copyright {
   margin: 10px 0px;
   text-align: center;

@@ -22,6 +22,7 @@
 
   function render() {
     var data = getData();
+    var isStyle2 = data.theme === "style2";
 
     // Personal info
     var nameEl = document.getElementById("cv-name");
@@ -50,25 +51,56 @@
     // Languages
     var langList = document.getElementById("cv-languages");
     if (langList) {
-      langList.innerHTML = data.languages
-        .map(function (lang) {
-          var stars = "";
-          for (var i = 1; i <= 5; i++) {
-            stars +=
-              i <= lang.level
-                ? '<i class="fas fa-star"></i>'
-                : '<i class="far fa-star"></i>';
-          }
-          return (
-            "<li>" +
-            '<div class="skill_name">' +
-            escapeHtml(lang.name) +
-            "</div>" +
-            stars +
-            "</li>"
-          );
-        })
-        .join("");
+      if (isStyle2) {
+        // Style 2: SVG semi-circle arc per language
+        langList.innerHTML = data.languages
+          .map(function (lang) {
+            var pct = Math.round((lang.level / 5) * 100);
+            var r = 36;
+            var cx = 50;
+            var cy = 50;
+            var circumference = Math.PI * r; // ≈ 113.1
+            var filled = (circumference * pct / 100).toFixed(1);
+            var pathD =
+              "M " + (cx - r) + " " + cy +
+              " A " + r + " " + r + " 0 0 1 " + (cx + r) + " " + cy;
+            return (
+              "<li>" +
+              '<svg viewBox="0 0 100 58" width="90" height="52">' +
+              '<path d="' + pathD + '" stroke="#e0d4f8" stroke-width="9" fill="none" stroke-linecap="round"/>' +
+              '<path d="' + pathD + '" stroke="#e8923a" stroke-width="9" fill="none" stroke-linecap="round"' +
+              ' stroke-dasharray="' + filled + ' 999"/>' +
+              '<text x="50" y="46" text-anchor="middle" fill="#e8923a" font-size="13" font-weight="700">' +
+              pct + "%" +
+              "</text>" +
+              "</svg>" +
+              '<p class="lang-arc-name">' + escapeHtml((lang.name || '').toUpperCase()) + "</p>" +
+              "</li>"
+            );
+          })
+          .join("");
+      } else {
+        // Style 1: star icons
+        langList.innerHTML = data.languages
+          .map(function (lang) {
+            var stars = "";
+            for (var i = 1; i <= 5; i++) {
+              stars +=
+                i <= lang.level
+                  ? '<i class="fas fa-star"></i>'
+                  : '<i class="far fa-star"></i>';
+            }
+            return (
+              "<li>" +
+              '<div class="skill_name">' +
+              escapeHtml(lang.name) +
+              "</div>" +
+              stars +
+              "</li>"
+            );
+          })
+          .join("");
+      }
     }
 
     // Skills
