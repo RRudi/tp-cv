@@ -448,6 +448,12 @@ body {
   color: var(--text-light);
 }
 
+.list-item .item-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
 .list-item .item-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
