@@ -261,6 +261,11 @@
     // About
     document.getElementById("about-text").value = d.about || "";
 
+    // Theme
+    var theme = d.theme || "style1";
+    var themeRadio = document.querySelector('input[name="cv-theme"][value="' + theme + '"]');
+    if (themeRadio) themeRadio.checked = true;
+
     // Dynamic lists
     renderSkillsList(d.skills);
     renderLanguagesList(d.languages);
@@ -272,7 +277,9 @@
 
   // ── Collect data from forms ───────────────────────────────────────────────
   function collectFormData() {
+    var themeRadio = document.querySelector('input[name="cv-theme"]:checked');
     return {
+      theme: themeRadio ? themeRadio.value : "style1",
       personal: {
         name:      document.getElementById("p-name").value.trim(),
         title:     document.getElementById("p-title").value.trim(),
