@@ -433,7 +433,8 @@ body {
 }
 
 #toast.success { background: var(--success); }
-#toast.error { background: var(--danger); }
+#toast.error   { background: var(--danger); }
+#toast.info    { background: var(--primary); }
 
 /* ===== RANGE INPUT ===== */
 input[type="range"] {
@@ -536,3 +537,57 @@ input[type="range"]::-webkit-slider-thumb {
     font-size: 0.8rem;
   }
 }
+
+/* ── GitHub Token Modal ─────────────────────────────────────────────────── */
+#token-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.token-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.token-card .logo {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.token-card .logo span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--primary);
+  border-radius: 50%;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.token-card h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.token-card .subtitle {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+}
+

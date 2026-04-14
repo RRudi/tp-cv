@@ -100,11 +100,146 @@
     });
   });
 
+  // ── GitHub config ─────────────────────────────────────────────────────────
+  var GITHUB_OWNER = "RRudi";
+  var GITHUB_REPO  = "tp-cv";
+  var GITHUB_FILE  = "cv-data.js";
+  var GITHUB_BRANCH = "main";
+
+  function buildCvDataFileContent(data) {
+    return "const CV_DEFAULT_DATA = " + JSON.stringify(data, null, 2) + ";\n";
+  }
+
+  function saveToGitHub(token, data, onSuccess, onError) {
+    var apiBase = "https://api.github.com/repos/" + GITHUB_OWNER + "/" + GITHUB_REPO + "/contents/" + GITHUB_FILE;
+    var authError = false;
+    // Step 1 – get current file SHA
+    fetch(apiBase + "?ref=" + GITHUB_BRANCH, {
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Accept": "application/vnd.github+json"
+      }
+    })
+    .then(function (res) {
+      if (res.status === 401 || res.status === 403) { authError = true; }
+      if (!res.ok) {
+        return res.json().then(function (body) {
+          throw new Error(body.message || ("GitHub API error " + res.status));
+        });
+      }
+      return res.json();
+    })
+    .then(function (fileInfo) {
+      var sha = fileInfo.sha;
+      var newContent = buildCvDataFileContent(data);
+      var encoded = btoa(Array.from(new TextEncoder().encode(newContent)).reduce(function (data, byte) { return data + String.fromCharCode(byte); }, ""));
+      return fetch(apiBase, {
+        method: "PUT",
+        headers: {
+          "Authorization": "Bearer " + token,
+          "Accept": "application/vnd.github+json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: "chore: mise à jour cv-data.js via admin",
+          content: encoded,
+          sha: sha,
+          branch: GITHUB_BRANCH
+        })
+      });
+    })
+    .then(function (res) {
+      if (res.status === 401 || res.status === 403) { authError = true; }
+      if (!res.ok) {
+        return res.json().then(function (body) {
+          throw new Error(body.message || ("GitHub API error " + res.status));
+        });
+      }
+      onSuccess();
+    })
+    .catch(function (err) {
+      onError(err.message || String(err), authError);
+    });
+  }
+
+  // ── Token modal ───────────────────────────────────────────────────────────
+  var tokenModal   = document.getElementById("token-modal");
+  var tokenInput   = document.getElementById("github-token");
+  var tokenError   = document.getElementById("token-error");
+  var tokenRemember = document.getElementById("token-remember");
+
+  function openTokenModal(onConfirm) {
+    tokenError.textContent = "";
+    tokenInput.value = sessionStorage.getItem("gh_token") || "";
+    tokenModal.style.display = "flex";
+    tokenInput.focus();
+
+    function confirm() {
+      var t = tokenInput.value.trim();
+      if (!t) {
+        tokenError.textContent = "Veuillez entrer un token GitHub.";
+        return;
+      }
+      if (tokenRemember.checked) {
+        sessionStorage.setItem("gh_token", t);
+      }
+      tokenModal.style.display = "none";
+      cleanup();
+      onConfirm(t);
+    }
+
+    function cancel() {
+      tokenModal.style.display = "none";
+      cleanup();
+    }
+
+    function onKeydown(e) {
+      if (e.key === "Enter") confirm();
+      if (e.key === "Escape") cancel();
+    }
+
+    document.getElementById("token-confirm").onclick = confirm;
+    document.getElementById("token-cancel").onclick  = cancel;
+    document.addEventListener("keydown", onKeydown);
+
+    function cleanup() {
+      document.getElementById("token-confirm").onclick = null;
+      document.getElementById("token-cancel").onclick  = null;
+      document.removeEventListener("keydown", onKeydown);
+    }
+  }
+
   // ── Save ──────────────────────────────────────────────────────────────────
   document.getElementById("btn-save").addEventListener("click", function () {
-    saveData(collectFormData());
-    showToast("✅ Données sauvegardées avec succès !", "success");
+    var data = collectFormData();
+    saveData(data);
+
+    var cachedToken = sessionStorage.getItem("gh_token");
+    if (cachedToken) {
+      doSaveToGitHub(cachedToken, data);
+    } else {
+      openTokenModal(function (token) {
+        doSaveToGitHub(token, data);
+      });
+    }
   });
+
+  function doSaveToGitHub(token, data) {
+    showToast("⏳ Enregistrement sur GitHub…", "info");
+    saveToGitHub(
+      token,
+      data,
+      function () {
+        showToast("✅ Données sauvegardées dans le dépôt GitHub !", "success");
+      },
+      function (errMsg, isAuthError) {
+        if (isAuthError) {
+          sessionStorage.removeItem("gh_token");
+        }
+        showToast("❌ Erreur GitHub : " + errMsg, "error");
+      }
+    );
+  }
 
   // ── Load data into forms ──────────────────────────────────────────────────
   function loadFormData() {
