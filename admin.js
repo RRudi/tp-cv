@@ -104,7 +104,7 @@
   var GITHUB_OWNER = "RRudi";
   var GITHUB_REPO  = "tp-cv";
   var GITHUB_FILE  = "cv-data.js";
-  var GITHUB_BRANCH = "main";
+  var GITHUB_BRANCH = "master";
 
   function buildCvDataFileContent(data) {
     return "const CV_DEFAULT_DATA = " + JSON.stringify(data, null, 2) + ";\n";
