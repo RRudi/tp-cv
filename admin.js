@@ -328,6 +328,24 @@
     avatarPreview.dataset.avatarUrl = "";
   });
 
+  // ── Move up/down helper ───────────────────────────────────────────────────
+  function addMoveHandlers(div, containerId, label) {
+    div.querySelector(".move-up").addEventListener("click", function () {
+      var prev = div.previousElementSibling;
+      if (prev && prev.classList.contains("list-item")) {
+        div.parentNode.insertBefore(div, prev);
+        renumberItems(containerId, label);
+      }
+    });
+    div.querySelector(".move-down").addEventListener("click", function () {
+      var next = div.nextElementSibling;
+      if (next && next.classList.contains("list-item")) {
+        div.parentNode.insertBefore(next, div);
+        renumberItems(containerId, label);
+      }
+    });
+  }
+
   // ── Skills ────────────────────────────────────────────────────────────────
   function renderSkillsList(skills) {
     var container = document.getElementById("skills-list");
@@ -345,7 +363,11 @@
     div.innerHTML =
       '<div class="item-header">' +
         '<span>Compétence #' + (idx + 1) + '</span>' +
-        '<button class="btn-icon remove-skill" title="Supprimer"><i class="fas fa-trash-alt"></i></button>' +
+        '<div class="item-actions">' +
+          '<button class="btn-icon move-up" title="Monter"><i class="fas fa-chevron-up"></i></button>' +
+          '<button class="btn-icon move-down" title="Descendre"><i class="fas fa-chevron-down"></i></button>' +
+          '<button class="btn-icon remove-skill" title="Supprimer"><i class="fas fa-trash-alt"></i></button>' +
+        '</div>' +
       '</div>' +
       '<div class="item-grid">' +
         '<div class="form-group">' +
@@ -367,6 +389,7 @@
       div.remove();
       renumberItems("skills-list", "Compétence");
     });
+    addMoveHandlers(div, "skills-list", "Compétence");
     return div;
   }
 
@@ -569,7 +592,11 @@
     div.innerHTML =
       '<div class="item-header">' +
         '<span>Expérience #' + (idx + 1) + '</span>' +
-        '<button class="btn-icon remove-exp" title="Supprimer"><i class="fas fa-trash-alt"></i></button>' +
+        '<div class="item-actions">' +
+          '<button class="btn-icon move-up" title="Monter"><i class="fas fa-chevron-up"></i></button>' +
+          '<button class="btn-icon move-down" title="Descendre"><i class="fas fa-chevron-down"></i></button>' +
+          '<button class="btn-icon remove-exp" title="Supprimer"><i class="fas fa-trash-alt"></i></button>' +
+        '</div>' +
       '</div>' +
       '<div class="item-grid">' +
         '<div class="form-group">' +
@@ -592,6 +619,7 @@
       div.remove();
       renumberItems("experiences-list", "Expérience");
     });
+    addMoveHandlers(div, "experiences-list", "Expérience");
     return div;
   }
 
@@ -627,7 +655,11 @@
     div.innerHTML =
       '<div class="item-header">' +
         '<span>Formation #' + (idx + 1) + '</span>' +
-        '<button class="btn-icon remove-edu" title="Supprimer"><i class="fas fa-trash-alt"></i></button>' +
+        '<div class="item-actions">' +
+          '<button class="btn-icon move-up" title="Monter"><i class="fas fa-chevron-up"></i></button>' +
+          '<button class="btn-icon move-down" title="Descendre"><i class="fas fa-chevron-down"></i></button>' +
+          '<button class="btn-icon remove-edu" title="Supprimer"><i class="fas fa-trash-alt"></i></button>' +
+        '</div>' +
       '</div>' +
       '<div class="item-grid">' +
         '<div class="form-group">' +
@@ -650,6 +682,7 @@
       div.remove();
       renumberItems("education-list", "Formation");
     });
+    addMoveHandlers(div, "education-list", "Formation");
     return div;
   }
 
