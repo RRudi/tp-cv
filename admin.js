@@ -118,6 +118,11 @@
     document.getElementById("p-website").value = d.personal.website || "";
     document.getElementById("p-address").value = d.personal.address || "";
 
+    var storedAvatar = d.personal.avatarUrl || "";
+    var isValidAvatar = storedAvatar && /^data:image\//.test(storedAvatar);
+    avatarPreview.src = isValidAvatar ? storedAvatar : "./images/avatar.png";
+    avatarPreview.dataset.avatarUrl = isValidAvatar ? storedAvatar : "";
+
     // About
     document.getElementById("about-text").value = d.about || "";
 
@@ -134,12 +139,13 @@
   function collectFormData() {
     return {
       personal: {
-        name:    document.getElementById("p-name").value.trim(),
-        title:   document.getElementById("p-title").value.trim(),
-        phone:   document.getElementById("p-phone").value.trim(),
-        email:   document.getElementById("p-email").value.trim(),
-        website: document.getElementById("p-website").value.trim(),
-        address: document.getElementById("p-address").value.trim()
+        name:      document.getElementById("p-name").value.trim(),
+        title:     document.getElementById("p-title").value.trim(),
+        phone:     document.getElementById("p-phone").value.trim(),
+        email:     document.getElementById("p-email").value.trim(),
+        website:   document.getElementById("p-website").value.trim(),
+        address:   document.getElementById("p-address").value.trim(),
+        avatarUrl: document.getElementById("p-avatar-preview").dataset.avatarUrl || ""
       },
       about: document.getElementById("about-text").value.trim(),
       skills:      collectSkills(),
@@ -150,6 +156,35 @@
       hobbies:     collectHobbies()
     };
   }
+
+  // ── Avatar upload ─────────────────────────────────────────────────────────
+  var avatarFileInput = document.getElementById("p-avatar-file");
+  var avatarPreview   = document.getElementById("p-avatar-preview");
+
+  avatarFileInput.addEventListener("change", function () {
+    var file = this.files && this.files[0];
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      showToast("⚠️ Veuillez sélectionner un fichier image.", "error");
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      avatarPreview.src = e.target.result;
+      avatarPreview.dataset.avatarUrl = e.target.result;
+    };
+    reader.onerror = function () {
+      showToast("⚠️ Erreur lors de la lecture du fichier.", "error");
+    };
+    reader.readAsDataURL(file);
+    // Reset value so the same file can be selected again
+    this.value = "";
+  });
+
+  document.getElementById("p-avatar-reset").addEventListener("click", function () {
+    avatarPreview.src = "./images/avatar.png";
+    avatarPreview.dataset.avatarUrl = "";
+  });
 
   // ── Skills ────────────────────────────────────────────────────────────────
   function renderSkillsList(skills) {
