@@ -12,11 +12,23 @@ const CV_DEFAULT_DATA = {
   "about": "Développeur indépendant FullStack / Tech Lead avec 17 ans d’expérience, je travaille au sein de l'équipe ServO chez FRANCILIANE, pilotage opérationnel du service de l’eau reposant sur .NET, Angular, React et PostgreSQL.",
   "skills": [
     {
-      "name": "C#, .NET, .NET Core, ASP.NET (MVC/Core)",
+      "name": "HTML/CSS",
+      "percent": 100
+    },
+    {
+      "name": "C# / .NET",
       "percent": 90
     },
     {
-      "name": "JavaScript (AngularJS, Angular, NodeJS, React, TypeScript)",
+      "name": "JavaScript / TypeScript / Node JS",
+      "percent": 90
+    },
+    {
+      "name": "Angular",
+      "percent": 90
+    },
+    {
+      "name": "SQL / MySQL",
       "percent": 90
     },
     {
@@ -24,15 +36,11 @@ const CV_DEFAULT_DATA = {
       "percent": 80
     },
     {
-      "name": "HTML/CSS",
-      "percent": 100
+      "name": "PostgreSQL / TimeScaleDB",
+      "percent": 75
     },
     {
-      "name": "SQL, MySQL",
-      "percent": 90
-    },
-    {
-      "name": "PostgreSQL, TimeScaleDB",
+      "name": "React",
       "percent": 75
     }
   ],
@@ -68,6 +76,11 @@ const CV_DEFAULT_DATA = {
     }
   ],
   "experiences": [
+    {
+      "dates": "Depuis 2021",
+      "title": "Formateur HTML/CSS et Javascript",
+      "description": "Cours particulier pour des personnes en reconversion professionnelle"
+    },
     {
       "dates": "Depuis 2015",
       "title": "Vedif - Franciliane (La Défense)",
