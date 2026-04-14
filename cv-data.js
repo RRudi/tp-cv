@@ -1,14 +1,14 @@
 const CV_DEFAULT_DATA = {
   "personal": {
     "name": "Rudi Romeu",
-    "title": "Développeur FullStack / Tech Lead - 17 ans d’expérience",
+    "title": "Développeur FullStack / Tech Lead (17 ans d’expérience)",
     "phone": "+33 642556699",
     "email": "rudi.romeu@gmail.com",
     "website": "www.rudiromeu.xyz",
     "address": "1 bd Masséna, 75013 Paris",
     "avatarUrl": ""
   },
-  "about": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis illo fugit officiis distinctio culpa officia totam atque exercitationem inventore repudiandae?",
+  "about": "Développeur indépendant FullStack / Tech Lead avec 17 ans d’expérience, je travaille au sein de l'équipe ServO chez FRANCILIANE, pilotage opérationnel du service de l’eau reposant sur .NET, Angular, React et PostgreSQL.",
   "skills": [
     {
       "name": "HTML 5",
