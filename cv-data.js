@@ -1,7 +1,7 @@
 const CV_DEFAULT_DATA = {
   personal: {
     name: "Rudi Romeu",
-    title: "Developpeur Web",
+    title: "Développeur Web",
     address: "100 bd Masséna, 75013\nParis",
     phone: "+33 642556699",
     email: "rudi@gmail.com",
