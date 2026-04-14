@@ -1,4 +1,5 @@
 const CV_DEFAULT_DATA = {
+  "theme": "style1",
   "personal": {
     "name": "Rudi Romeu",
     "title": "Développeur FullStack/DevOpps",

@@ -4,12 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./style.css" id="cv-theme-link" />
     <link
       rel="stylesheet"
       href="./style.mobile.css"
       media="screen and (max-width: 700px)"
     />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("cv_data");
+          if (stored) {
+            var data = JSON.parse(stored);
+            if (data.theme === "style2") {
+              document.getElementById("cv-theme-link").href = "./style2.css";
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
 
     <title>CV de Rudi Romeu</title>
   </head>
