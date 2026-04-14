@@ -61,18 +61,8 @@ const CV_DEFAULT_DATA = {
   "social": [
     {
       "name": "Linkedin",
-      "handle": "Rudi@linkedin",
+      "handle": "https://fr.linkedin.com/in/rudi-romeu",
       "icon": "fab fa-linkedin"
-    },
-    {
-      "name": "Twitter",
-      "handle": "Rudi@twitter",
-      "icon": "fab fa-twitter-square"
-    },
-    {
-      "name": "Facebook",
-      "handle": "Rudi@facebook",
-      "icon": "fab fa-facebook-square"
     }
   ],
   "experiences": [
@@ -100,18 +90,18 @@ const CV_DEFAULT_DATA = {
   "education": [
     {
       "dates": "2006 - 2009",
-      "title": "Diplôme d'Ingénieur en Informatique (Niveau Bac+5) - Ingésup, Paris",
-      "description": "<b data-path-to-node=\"5,0,0\" data-index-in-node=\"0\" style=\"font-family: inherit; font-size: 0.95rem;\">Spécialité :</b><span style=\"font-family: inherit; font-size: 0.95rem;\"> Systèmes Informatiques et Génie Logiciel (SIGL).</span><br><i data-path-to-node=\"5,1,0\" data-index-in-node=\"0\" style=\"font-family: inherit; font-size: 0.95rem;\">Focus sur l'architecture logicielle, la conception de systèmes d'information complexes et la gestion de projets IT.</i>"
+      "title": "Diplôme d'Ingénieur en Informatique (Niveau Bac+5)",
+      "description": "<div><span data-path-to-node=\"5,0,0\" data-index-in-node=\"0\" style=\"\"><b>Ingésup, Paris</b></span></div><span data-path-to-node=\"5,0,0\" data-index-in-node=\"0\" style=\"font-family: inherit; font-size: 0.95rem;\">Spécialité :</span><span style=\"font-family: inherit; font-size: 0.95rem;\"> Systèmes Informatiques et Génie Logiciel (SIGL).</span><br><i data-path-to-node=\"5,1,0\" data-index-in-node=\"0\" style=\"font-family: inherit; font-size: 0.95rem;\">Focus sur l'architecture logicielle, la conception de systèmes d'information complexes et la gestion de projets IT.</i>"
     },
     {
       "dates": "2003 - 2005",
-      "title": "DUT Informatique - Université Paris Descartes, Paris",
-      "description": "Acquisition des fondamentaux solides en développement, algorithmique et bases de données."
+      "title": "DUT Informatique",
+      "description": "<div><b>Université Paris Descartes, Paris</b></div>Acquisition des fondamentaux solides en développement, algorithmique et bases de données."
     },
     {
       "dates": "2003",
-      "title": "Baccalauréat Scientifique - Lycée Arago, Paris",
-      "description": "Spécialité Mathématiques."
+      "title": "Baccalauréat Scientifique",
+      "description": "<div><b>Lycée Arago, Paris</b></div>Spécialité Mathématiques."
     }
   ],
   "hobbies": [
