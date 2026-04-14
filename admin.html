@@ -94,6 +94,21 @@
                 <label>Adresse</label>
                 <textarea id="p-address"></textarea>
               </div>
+              <div class="form-group full-width">
+                <label>Photo de profil (avatar)</label>
+                <div class="avatar-upload">
+                  <img id="p-avatar-preview" src="./images/avatar.png" alt="Aperçu de l'avatar" />
+                  <div class="avatar-upload-controls">
+                    <label class="btn btn-secondary" for="p-avatar-file">
+                      <i class="fas fa-upload"></i> Choisir une image
+                    </label>
+                    <input type="file" id="p-avatar-file" accept="image/*" />
+                    <button type="button" class="btn btn-danger" id="p-avatar-reset">
+                      <i class="fas fa-undo"></i> Réinitialiser
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

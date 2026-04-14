@@ -38,6 +38,11 @@
     if (emailEl) emailEl.textContent = data.personal.email;
     if (websiteEl) websiteEl.textContent = data.personal.website;
 
+    var avatarEl = document.querySelector(".resume_photo img");
+    if (avatarEl && data.personal.avatarUrl && /^data:image\//.test(data.personal.avatarUrl)) {
+      avatarEl.src = data.personal.avatarUrl;
+    }
+
     // About
     var aboutEl = document.getElementById("cv-about");
     if (aboutEl) aboutEl.textContent = data.about;

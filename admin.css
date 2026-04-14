@@ -473,6 +473,33 @@ input[type="range"]::-webkit-slider-thumb {
   color: var(--primary);
 }
 
+/* ===== AVATAR UPLOAD ===== */
+.avatar-upload {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar-upload img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+  flex-shrink: 0;
+}
+
+.avatar-upload-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.avatar-upload-controls input[type="file"] {
+  display: none;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .admin-sidebar {
