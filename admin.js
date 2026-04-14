@@ -516,12 +516,12 @@
     var toolbar = document.createElement("div");
     toolbar.className = "rich-toolbar";
     toolbar.innerHTML =
-      '<button type="button" data-cmd="bold" title="Gras"><i class="fas fa-bold"></i></button>' +
-      '<button type="button" data-cmd="italic" title="Italique"><i class="fas fa-italic"></i></button>' +
-      '<button type="button" data-cmd="underline" title="Souligné"><i class="fas fa-underline"></i></button>' +
+      '<button type="button" data-cmd="bold" title="Gras" aria-label="Gras"><i class="fas fa-bold"></i></button>' +
+      '<button type="button" data-cmd="italic" title="Italique" aria-label="Italique"><i class="fas fa-italic"></i></button>' +
+      '<button type="button" data-cmd="underline" title="Souligné" aria-label="Souligné"><i class="fas fa-underline"></i></button>' +
       '<span class="rich-toolbar-sep"></span>' +
-      '<button type="button" data-cmd="insertUnorderedList" title="Liste à puces"><i class="fas fa-list-ul"></i></button>' +
-      '<button type="button" data-cmd="insertOrderedList" title="Liste numérotée"><i class="fas fa-list-ol"></i></button>';
+      '<button type="button" data-cmd="insertUnorderedList" title="Liste à puces" aria-label="Liste à puces"><i class="fas fa-list-ul"></i></button>' +
+      '<button type="button" data-cmd="insertOrderedList" title="Liste numérotée" aria-label="Liste numérotée"><i class="fas fa-list-ol"></i></button>';
 
     var editor = document.createElement("div");
     editor.className = "rich-editor " + className;
