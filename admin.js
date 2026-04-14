@@ -508,6 +508,51 @@
     container.appendChild(createSocialItem({ name: "", handle: "", icon: "fab fa-" }, idx));
   });
 
+  // ── Rich text editor helper ───────────────────────────────────────────────
+  function createRichEditor(htmlContent, className) {
+    var wrapper = document.createElement("div");
+    wrapper.className = "rich-editor-wrapper";
+
+    var toolbar = document.createElement("div");
+    toolbar.className = "rich-toolbar";
+    toolbar.innerHTML =
+      '<button type="button" data-cmd="bold" title="Gras" aria-label="Gras"><i class="fas fa-bold"></i></button>' +
+      '<button type="button" data-cmd="italic" title="Italique" aria-label="Italique"><i class="fas fa-italic"></i></button>' +
+      '<button type="button" data-cmd="underline" title="Souligné" aria-label="Souligné"><i class="fas fa-underline"></i></button>' +
+      '<span class="rich-toolbar-sep"></span>' +
+      '<button type="button" data-cmd="insertUnorderedList" title="Liste à puces" aria-label="Liste à puces"><i class="fas fa-list-ul"></i></button>' +
+      '<button type="button" data-cmd="insertOrderedList" title="Liste numérotée" aria-label="Liste numérotée"><i class="fas fa-list-ol"></i></button>';
+
+    var editor = document.createElement("div");
+    editor.className = "rich-editor " + className;
+    editor.contentEditable = "true";
+    editor.innerHTML = DOMPurify.sanitize(htmlContent || "");
+
+    toolbar.querySelectorAll("button[data-cmd]").forEach(function (btn) {
+      btn.addEventListener("mousedown", function (e) {
+        e.preventDefault();
+        document.execCommand(btn.dataset.cmd, false, null);
+        updateToolbarState(toolbar, editor);
+      });
+    });
+
+    editor.addEventListener("keyup", function () { updateToolbarState(toolbar, editor); });
+    editor.addEventListener("mouseup", function () { updateToolbarState(toolbar, editor); });
+
+    wrapper.appendChild(toolbar);
+    wrapper.appendChild(editor);
+    return wrapper;
+  }
+
+  function updateToolbarState(toolbar, editor) {
+    toolbar.querySelectorAll("button[data-cmd]").forEach(function (btn) {
+      var cmd = btn.dataset.cmd;
+      if (cmd === "bold" || cmd === "italic" || cmd === "underline") {
+        btn.classList.toggle("active", document.queryCommandState(cmd));
+      }
+    });
+  }
+
   // ── Experiences ───────────────────────────────────────────────────────────
   function renderExperiencesList(experiences) {
     var container = document.getElementById("experiences-list");
@@ -535,11 +580,14 @@
           '<label>Titre du poste</label>' +
           '<input type="text" class="exp-title" value="' + escapeHtml(exp.title) + '" />' +
         '</div>' +
-        '<div class="form-group full-width">' +
-          '<label>Description</label>' +
-          '<textarea class="exp-desc">' + escapeHtml(exp.description) + '</textarea>' +
-        '</div>' +
       '</div>';
+    var descGroup = document.createElement("div");
+    descGroup.className = "form-group full-width";
+    var descLabel = document.createElement("label");
+    descLabel.textContent = "Description";
+    descGroup.appendChild(descLabel);
+    descGroup.appendChild(createRichEditor(exp.description || "", "exp-desc"));
+    div.querySelector(".item-grid").appendChild(descGroup);
     div.querySelector(".remove-exp").addEventListener("click", function () {
       div.remove();
       renumberItems("experiences-list", "Expérience");
@@ -552,7 +600,7 @@
       return {
         dates:       item.querySelector(".exp-dates").value.trim(),
         title:       item.querySelector(".exp-title").value.trim(),
-        description: item.querySelector(".exp-desc").value.trim()
+        description: item.querySelector(".exp-desc").innerHTML.trim()
       };
     });
   }
@@ -590,11 +638,14 @@
           '<label>Titre / Diplôme</label>' +
           '<input type="text" class="edu-title" value="' + escapeHtml(edu.title) + '" />' +
         '</div>' +
-        '<div class="form-group full-width">' +
-          '<label>Description</label>' +
-          '<textarea class="edu-desc">' + escapeHtml(edu.description) + '</textarea>' +
-        '</div>' +
       '</div>';
+    var descGroup = document.createElement("div");
+    descGroup.className = "form-group full-width";
+    var descLabel = document.createElement("label");
+    descLabel.textContent = "Description";
+    descGroup.appendChild(descLabel);
+    descGroup.appendChild(createRichEditor(edu.description || "", "edu-desc"));
+    div.querySelector(".item-grid").appendChild(descGroup);
     div.querySelector(".remove-edu").addEventListener("click", function () {
       div.remove();
       renumberItems("education-list", "Formation");
@@ -607,7 +658,7 @@
       return {
         dates:       item.querySelector(".edu-dates").value.trim(),
         title:       item.querySelector(".edu-title").value.trim(),
-        description: item.querySelector(".edu-desc").value.trim()
+        description: item.querySelector(".edu-desc").innerHTML.trim()
       };
     });
   }
