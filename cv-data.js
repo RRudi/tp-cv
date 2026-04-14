@@ -12,50 +12,30 @@ const CV_DEFAULT_DATA = {
   "about": "Fort de 17 ans d'expérience dans l'ingénierie logicielle et le pilotage de projets IT, j'allie une solide expertise technique (écosystèmes .NET, Angular, React, PostgreSQL) à une vision orientée produit. Actuellement Tech Lead au sein de l'équipe ServO chez FRANCILIANE, je conçois, développe et optimise des solutions complexes destinées au pilotage opérationnel du service de l'eau. Mon parcours, enrichi par plusieurs expériences entrepreneuriales, m'a doté d'une vision transverse du cycle de vie logiciel : de l'analyse des besoins métiers jusqu'au maintien en condition opérationnelle, en passant par l'architecture logicielle et l'administration système.",
   "skills": [
     {
-      "name": "HTML/CSS",
-      "percent": 100
+      "category": "Frontend",
+      "items": "HTML/CSS, JavaScript, TypeScript, Angular, React"
     },
     {
-      "name": "C# / .NET",
-      "percent": 90
+      "category": "Backend",
+      "items": "C# / .NET, Node.js, Python"
     },
     {
-      "name": "JavaScript / TypeScript / Node JS",
-      "percent": 90
-    },
-    {
-      "name": "Angular",
-      "percent": 90
-    },
-    {
-      "name": "SQL / MySQL",
-      "percent": 90
-    },
-    {
-      "name": "Python",
-      "percent": 80
-    },
-    {
-      "name": "PostgreSQL / TimeScaleDB",
-      "percent": 75
-    },
-    {
-      "name": "React",
-      "percent": 75
+      "category": "Bases de données",
+      "items": "SQL / MySQL, PostgreSQL / TimeScaleDB"
     }
   ],
   "languages": [
     {
       "name": "Français",
-      "level": 5
+      "description": "Langue maternelle"
     },
     {
       "name": "Anglais",
-      "level": 3
+      "description": "Courant (professionnel)"
     },
     {
       "name": "Espagnol",
-      "level": 2
+      "description": "Notions"
     }
   ],
   "social": [

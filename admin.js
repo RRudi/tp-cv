@@ -359,7 +359,6 @@
     var div = document.createElement("div");
     div.className = "list-item";
     div.dataset.idx = idx;
-    var pct = parseInt(skill.percent, 10) || 0;
     div.innerHTML =
       '<div class="item-header">' +
         '<span>Compétence #' + (idx + 1) + '</span>' +
@@ -371,20 +370,14 @@
       '</div>' +
       '<div class="item-grid">' +
         '<div class="form-group">' +
-          '<label>Nom</label>' +
-          '<input type="text" class="skill-name" value="' + escapeHtml(skill.name) + '" />' +
+          '<label>Catégorie</label>' +
+          '<input type="text" class="skill-category" value="' + escapeHtml(skill.category || "") + '" />' +
         '</div>' +
-        '<div class="form-group">' +
-          '<label>Niveau (%)</label>' +
-          '<div class="range-wrapper">' +
-            '<input type="range" min="0" max="100" step="5" class="skill-percent" value="' + pct + '" />' +
-            '<span class="range-value">' + pct + '%</span>' +
-          '</div>' +
+        '<div class="form-group full-width">' +
+          '<label>Liste des compétences</label>' +
+          '<textarea class="skill-items" style="min-height:80px;">' + escapeHtml(skill.items || "") + '</textarea>' +
         '</div>' +
       '</div>';
-    div.querySelector(".skill-percent").addEventListener("input", function () {
-      div.querySelector(".range-value").textContent = this.value + "%";
-    });
     div.querySelector(".remove-skill").addEventListener("click", function () {
       div.remove();
       renumberItems("skills-list", "Compétence");
@@ -396,8 +389,8 @@
   function collectSkills() {
     return Array.from(document.querySelectorAll("#skills-list .list-item")).map(function (item) {
       return {
-        name:    item.querySelector(".skill-name").value.trim(),
-        percent: parseInt(item.querySelector(".skill-percent").value, 10) || 0
+        category: item.querySelector(".skill-category").value.trim(),
+        items:    item.querySelector(".skill-items").value.trim()
       };
     });
   }
@@ -405,7 +398,7 @@
   document.getElementById("add-skill").addEventListener("click", function () {
     var container = document.getElementById("skills-list");
     var idx = container.querySelectorAll(".list-item").length;
-    container.appendChild(createSkillItem({ name: "", percent: 50 }, idx));
+    container.appendChild(createSkillItem({ category: "", items: "" }, idx));
   });
 
   // ── Languages ─────────────────────────────────────────────────────────────
@@ -421,11 +414,6 @@
     var div = document.createElement("div");
     div.className = "list-item";
     div.dataset.idx = idx;
-    var level = parseInt(lang.level, 10) || 1;
-    var stars = "";
-    for (var i = 1; i <= 5; i++) {
-      stars += '<i class="' + (i <= level ? "fas" : "far") + ' fa-star" data-val="' + i + '"></i>';
-    }
     div.innerHTML =
       '<div class="item-header">' +
         '<span>Langue #' + (idx + 1) + '</span>' +
@@ -437,22 +425,10 @@
           '<input type="text" class="lang-name" value="' + escapeHtml(lang.name) + '" />' +
         '</div>' +
         '<div class="form-group">' +
-          '<label>Niveau (étoiles)</label>' +
-          '<div class="star-rating" data-value="' + level + '">' + stars + '</div>' +
+          '<label>Description (ex : Langue maternelle, Courant…)</label>' +
+          '<input type="text" class="lang-description" value="' + escapeHtml(lang.description || "") + '" />' +
         '</div>' +
       '</div>';
-
-    var rating = div.querySelector(".star-rating");
-    rating.querySelectorAll("i").forEach(function (star) {
-      star.addEventListener("click", function () {
-        var val = parseInt(this.getAttribute("data-val"), 10);
-        rating.setAttribute("data-value", val);
-        rating.querySelectorAll("i").forEach(function (s) {
-          var sv = parseInt(s.getAttribute("data-val"), 10);
-          s.className = (sv <= val ? "fas" : "far") + " fa-star";
-        });
-      });
-    });
 
     div.querySelector(".remove-lang").addEventListener("click", function () {
       div.remove();
@@ -464,8 +440,8 @@
   function collectLanguages() {
     return Array.from(document.querySelectorAll("#languages-list .list-item")).map(function (item) {
       return {
-        name:  item.querySelector(".lang-name").value.trim(),
-        level: parseInt(item.querySelector(".star-rating").getAttribute("data-value"), 10) || 1
+        name:        item.querySelector(".lang-name").value.trim(),
+        description: item.querySelector(".lang-description").value.trim()
       };
     });
   }
@@ -473,7 +449,7 @@
   document.getElementById("add-language").addEventListener("click", function () {
     var container = document.getElementById("languages-list");
     var idx = container.querySelectorAll(".list-item").length;
-    container.appendChild(createLanguageItem({ name: "", level: 3 }, idx));
+    container.appendChild(createLanguageItem({ name: "", description: "" }, idx));
   });
 
   // ── Social ────────────────────────────────────────────────────────────────

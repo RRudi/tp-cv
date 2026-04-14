@@ -159,55 +159,34 @@ body {
 }
 
 .resume .resume_left .resume_languages ul li .skill_name {
-  width: 25%;
+  width: 40%;
+  color: #fff;
+  font-weight: 600;
 }
 
-
-.resume .resume_left .resume_languages ul li i {
-  color: white;
+.resume .resume_left .resume_languages ul li .lang-description {
+  width: 58%;
+  font-style: italic;
 }
-
-
-
-
-
-
-
-
-
 
 
 .resume .resume_left .resume_skills ul li {
   display: flex;
-  margin-bottom: 10px;
+  flex-direction: column;
+  margin-bottom: 12px;
   color: #b1eaff;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .resume .resume_left .resume_skills ul li .skill_name {
-  width: 35%;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 3px;
 }
 
-.resume .resume_left .resume_skills ul li .skill_progress {
-  width: 45%;
-  margin: 0 5px;
-  height: 5px;
-  background: #009fd9;
-  position: relative;
+.resume .resume_left .resume_skills ul li .skill_items {
+  font-size: 0.9em;
 }
 
-.resume .resume_left .resume_skills ul li .skill_per {
-  width: 15%;
-}
-
-.resume .resume_left .resume_skills ul li .skill_progress span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background: #fff;
-}
 
 .resume .resume_left .resume_social .semi-bold {
   color: #fff;
