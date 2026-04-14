@@ -1,7 +1,7 @@
 const CV_DEFAULT_DATA = {
   "personal": {
     "name": "Rudi Romeu",
-    "title": "Développeur FullStack/DevOpps",
+    "title": "Développeur FullStack / Tech Lead - 17 ans d’expérience",
     "phone": "+33 642556699",
     "email": "rudi.romeu@gmail.com",
     "website": "www.rudiromeu.xyz",
