@@ -11,16 +11,28 @@ const CV_DEFAULT_DATA = {
   "about": "Développeur indépendant FullStack / Tech Lead avec 17 ans d’expérience, je travaille au sein de l'équipe ServO chez FRANCILIANE, pilotage opérationnel du service de l’eau reposant sur .NET, Angular, React et PostgreSQL.",
   "skills": [
     {
-      "name": "HTML 5",
+      "name": "C#, .NET, .NET Core, ASP.NET (MVC/Core)",
       "percent": 90
     },
     {
-      "name": "CSS 3",
+      "name": "JavaScript (AngularJS, Angular, NodeJS, React, TypeScript)",
+      "percent": 90
+    },
+    {
+      "name": "Python",
       "percent": 80
     },
     {
-      "name": "JS",
-      "percent": 0
+      "name": "HTML/CSS",
+      "percent": 100
+    },
+    {
+      "name": "SQL, MySQL",
+      "percent": 90
+    },
+    {
+      "name": "PostgreSQL, TimeScaleDB",
+      "percent": 75
     }
   ],
   "languages": [
