@@ -3,7 +3,7 @@
 
   // ── Stored SHA-256 hashes (password never in plaintext) ──────────────────
   var EXPECTED_LOGIN_HASH = "0cfcbf0e34abd78504fa0b4e6682033a62fedc4ce37890906d2cf6822f9647db";
-  var EXPECTED_PWD_HASH   = "6f6cb0c9b3a058cf4b00a5fb2302057556a6c02f737249bc2d0acb14ad244642";
+  var EXPECTED_PWD_HASH   = "008ce42faa45ac3640ac5423422da169f63168686e6993813e7c16700a6cd9a7";
 
   // ── Helpers ───────────────────────────────────────────────────────────────
   function sha256(str) {
