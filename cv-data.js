@@ -29,11 +29,11 @@ const CV_DEFAULT_DATA = {
     },
     {
       "category": "Système & Infrastructure",
-      "items": "Administration environnements Linux et Windows Server, Jenkins, Ansible"
+      "items": "Administration environnements Linux et Windows Server, Jenkins, Ansible, Git, GitHub"
     },
     {
       "category": "Développement Mobile",
-      "items": "Android, iOS (historique)"
+      "items": "Android, iOS"
     }
   ],
   "languages": [
