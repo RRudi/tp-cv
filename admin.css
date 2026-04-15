@@ -559,13 +559,32 @@ input[type="range"]::-webkit-slider-thumb {
   gap: 20px;
 }
 
+.avatar-preview-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+}
+
 .avatar-upload img {
   width: 96px;
   height: 96px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--border);
-  flex-shrink: 0;
+}
+
+.avatar-placeholder {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 3px dashed var(--border);
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 2rem;
 }
 
 .avatar-upload-controls {
