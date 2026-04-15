@@ -441,102 +441,44 @@ body {
 .resume_skills ul li .skill_name {
   font-size: 13px;
   color: #444;
-  font-weight: 500;
-  margin-bottom: 6px;
+  font-weight: 700;
+  margin-bottom: 4px;
   width: 100%;
 }
 
-.resume_skills ul li .skill_progress {
-  width: 140px;
-  height: 14px;
-  background: none;
-  position: relative;
-  margin: 0;
-}
-
-/* Gray dots layer */
-.resume_skills ul li .skill_progress::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 140px;
-  height: 14px;
-  background-image: radial-gradient(circle at 7px 7px, #e0d4f8 6px, transparent 6px);
-  background-size: 20px 14px;
-  background-repeat: repeat-x;
-}
-
-/* Orange filled dots (clipped to span width) */
-.resume_skills ul li .skill_progress span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background-image: radial-gradient(circle at 7px 7px, #e8923a 6px, transparent 6px);
-  background-size: 20px 14px;
-  background-repeat: repeat-x;
-}
-
-.resume_skills ul li .skill_per {
-  display: none;
+.resume_skills ul li .skill_items {
+  font-size: 12px;
+  color: #666;
 }
 
 /* ─────────────────────────────────────────── */
-/* LANGUAGES (SVG arc or fallback stars)        */
+/* LANGUAGES (name + description text)         */
 /* ─────────────────────────────────────────── */
 .resume_languages ul {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
   padding-left: 0;
 }
 
 .resume_languages ul li {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  gap: 10px;
 }
 
-/* SVG arc labels */
-.resume_languages ul li .lang-arc-name {
-  font-size: 11px;
-  font-weight: 700;
-  color: #666;
-  text-transform: uppercase;
-  margin-top: 2px;
-  text-align: center;
-}
-
-/* Fallback star → filled/empty circle */
 .resume_languages ul li .skill_name {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   color: #555;
-  text-transform: uppercase;
-  margin-top: 4px;
-  text-align: center;
-  width: 100%;
+  min-width: 90px;
 }
 
-.resume_languages ul li i.fas.fa-star,
-.resume_languages ul li i.far.fa-star {
-  font-size: 0;
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin: 2px;
-  vertical-align: middle;
-}
-
-.resume_languages ul li i.fas.fa-star {
-  background: #e8923a;
-}
-
-.resume_languages ul li i.far.fa-star {
-  background: #e0d4f8;
+.resume_languages ul li .lang-description {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
 }
 
 /* ─────────────────────────────────────────── */
