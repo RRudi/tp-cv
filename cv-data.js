@@ -39,15 +39,15 @@ const CV_DEFAULT_DATA = {
   "languages": [
     {
       "name": "Français",
-      "description": ""
+      "description": "Langue maternelle"
     },
     {
       "name": "Anglais",
-      "description": ""
+      "description": "Courant et Technique (Lecture de doc et réunion)"
     },
     {
       "name": "Espagnol",
-      "description": ""
+      "description": "Notions scolaires"
     }
   ],
   "social": [
