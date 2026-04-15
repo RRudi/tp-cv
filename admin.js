@@ -255,8 +255,11 @@
 
     var storedAvatar = d.personal.avatarUrl || "";
     var isValidAvatar = storedAvatar && /^data:image\//.test(storedAvatar);
-    avatarPreview.src = isValidAvatar ? storedAvatar : "./images/avatar.png";
-    avatarPreview.dataset.avatarUrl = isValidAvatar ? storedAvatar : "";
+    if (isValidAvatar) {
+      showAvatarPreview(storedAvatar);
+    } else {
+      showAvatarPlaceholder();
+    }
 
     // About
     document.getElementById("about-text").value = d.about || "";
@@ -300,8 +303,22 @@
   }
 
   // ── Avatar upload ─────────────────────────────────────────────────────────
-  var avatarFileInput = document.getElementById("p-avatar-file");
-  var avatarPreview   = document.getElementById("p-avatar-preview");
+  var avatarFileInput   = document.getElementById("p-avatar-file");
+  var avatarPreview     = document.getElementById("p-avatar-preview");
+  var avatarPlaceholder = document.getElementById("p-avatar-placeholder");
+
+  function showAvatarPreview(dataUrl) {
+    avatarPreview.src = dataUrl;
+    avatarPreview.style.display = "";
+    avatarPlaceholder.style.display = "none";
+    avatarPreview.dataset.avatarUrl = dataUrl;
+  }
+
+  function showAvatarPlaceholder() {
+    avatarPreview.style.display = "none";
+    avatarPlaceholder.style.display = "";
+    avatarPreview.dataset.avatarUrl = "";
+  }
 
   avatarFileInput.addEventListener("change", function () {
     var file = this.files && this.files[0];
@@ -312,8 +329,7 @@
     }
     var reader = new FileReader();
     reader.onload = function (e) {
-      avatarPreview.src = e.target.result;
-      avatarPreview.dataset.avatarUrl = e.target.result;
+      showAvatarPreview(e.target.result);
     };
     reader.onerror = function () {
       showToast("⚠️ Erreur lors de la lecture du fichier.", "error");
@@ -323,9 +339,8 @@
     this.value = "";
   });
 
-  document.getElementById("p-avatar-reset").addEventListener("click", function () {
-    avatarPreview.src = "./images/avatar.png";
-    avatarPreview.dataset.avatarUrl = "";
+  document.getElementById("p-avatar-delete").addEventListener("click", function () {
+    showAvatarPlaceholder();
   });
 
   // ── Move up/down helper ───────────────────────────────────────────────────

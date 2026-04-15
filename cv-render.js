@@ -38,9 +38,15 @@
     if (emailEl) emailEl.textContent = data.personal.email;
     if (websiteEl) websiteEl.textContent = data.personal.website;
 
+    var photoEl = document.querySelector(".resume_photo");
     var avatarEl = document.querySelector(".resume_photo img");
-    if (avatarEl && data.personal.avatarUrl && /^data:image\//.test(data.personal.avatarUrl)) {
-      avatarEl.src = data.personal.avatarUrl;
+    if (photoEl && avatarEl) {
+      if (data.personal.avatarUrl && /^data:image\//.test(data.personal.avatarUrl)) {
+        avatarEl.src = data.personal.avatarUrl;
+        photoEl.style.display = "";
+      } else {
+        photoEl.style.display = "none";
+      }
     }
 
     // About
